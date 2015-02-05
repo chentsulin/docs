@@ -1,18 +1,18 @@
-# Helper Functions
+# 輔助方法
 
-- [Arrays](#arrays)
-- [Paths](#paths)
+- [陣列](#arrays)
+- [路徑](#paths)
 - [Routing](#routing)
-- [Strings](#strings)
-- [URLs](#urls)
-- [Miscellaneous](#miscellaneous)
+- [字串](#strings)
+- [網址](#urls)
+- [其他](#miscellaneous)
 
 <a name="arrays"></a>
-## Arrays
+## 陣列
 
 ### array_add
 
-The `array_add` function adds a given key / value pair to the array if the given key doesn't already exist in the array.
+如果給定的鍵不在陣列中，`array_add` 函式會把給定的鍵值對加到陣列中。
 
 	$array = ['foo' => 'bar'];
 
@@ -20,7 +20,7 @@ The `array_add` function adds a given key / value pair to the array if the given
 
 ### array_divide
 
-The `array_divide` function returns two arrays, one containing the keys, and the other containing the values of the original array.
+`array_divide` 函式回傳兩個陣列，一個包含原本陣列的鍵，另一個包含原本陣列的值。
 
 	$array = ['foo' => 'bar'];
 
@@ -28,7 +28,7 @@ The `array_divide` function returns two arrays, one containing the keys, and the
 
 ### array_dot
 
-The `array_dot` function flattens a multi-dimensional array into a single level array that uses "dot" notation to indicate depth.
+`array_dot` 函式把多維陣列扁平化成一維陣列，並用「點」符號表示深度。
 
 	$array = ['foo' => ['bar' => 'baz']];
 
@@ -38,13 +38,13 @@ The `array_dot` function flattens a multi-dimensional array into a single level 
 
 ### array_except
 
-The `array_except` method removes the given key / value pairs from the array.
+`array_except` 函式從陣列移除給定的鍵值對。
 
 	$array = array_except($array, ['keys', 'to', 'remove']);
 
 ### array_fetch
 
-The `array_fetch` method returns a flattened array containing the selected nested element.
+`array_fetch` 函式回傳包含被選擇的巢狀元素的扁平化陣列。
 
 	$array = [
 		['developer' => ['name' => 'Taylor']],
@@ -57,7 +57,7 @@ The `array_fetch` method returns a flattened array containing the selected neste
 
 ### array_first
 
-The `array_first` method returns the first element of an array passing a given truth test.
+`array_first` 函式回傳陣列中第一個通過給定的測試為真的元素。
 
 	$array = [100, 200, 300];
 
@@ -66,13 +66,13 @@ The `array_first` method returns the first element of an array passing a given t
 		return $value >= 150;
 	});
 
-A default value may also be passed as the third parameter:
+也可以傳遞預設值當作第三個參數：
 
 	$value = array_first($array, $callback, $default);
 
 ### array_last
 
-The `array_last` method returns the last element of an array passing a given truth test.
+`array_last` 函式回傳陣列中最後一個通過給定的測試為真的元素。
 
 	$array = [350, 400, 500, 300, 200, 100];
 
@@ -83,13 +83,13 @@ The `array_last` method returns the last element of an array passing a given tru
 
 	// 500
 
-A default value may also be passed as the third parameter:
+也可以傳遞預設值當作第三個參數：
 
 	$value = array_last($array, $callback, $default);
 
 ### array_flatten
 
-The `array_flatten` method will flatten a multi-dimensional array into a single level.
+`array_flatten` 函式將會把多維陣列扁平化成一維。
 
 	$array = ['name' => 'Joe', 'languages' => ['PHP', 'Ruby']];
 
@@ -99,7 +99,7 @@ The `array_flatten` method will flatten a multi-dimensional array into a single 
 
 ### array_forget
 
-The `array_forget` method will remove a given key / value pair from a deeply nested array using "dot" notation.
+`array_forget` 函式將會用「點」符號從深度巢狀陣列移除給定的鍵值對。
 
 	$array = ['names' => ['joe' => ['programmer']]];
 
@@ -107,7 +107,7 @@ The `array_forget` method will remove a given key / value pair from a deeply nes
 
 ### array_get
 
-The `array_get` method will retrieve a given value from a deeply nested array using "dot" notation.
+`array_get` 函式將會使用「點」符號從深度巢狀陣列取回給定的值。
 
 	$array = ['names' => ['joe' => ['programmer']]];
 
@@ -115,11 +115,11 @@ The `array_get` method will retrieve a given value from a deeply nested array us
 
 	$value = array_get($array, 'names.john', 'default');
 
-> **Note:** Want something like `array_get` but for objects instead? Use `object_get`.
+> **注意:** 想要把 `array_get` 用在物件上？ 請使用 `object_get`。
 
 ### array_only
 
-The `array_only` method will return only the specified key / value pairs from the array.
+`array_only` 函式將會只從陣列回傳給定的鍵值對。
 
 	$array = ['name' => 'Joe', 'age' => 27, 'votes' => 1];
 
@@ -127,7 +127,7 @@ The `array_only` method will return only the specified key / value pairs from th
 
 ### array_pluck
 
-The `array_pluck` method will pluck a list of the given key / value pairs from the array.
+`array_pluck` 函式將會從陣列拉出給定鍵值對的清單。
 
 	$array = [['name' => 'Taylor'], ['name' => 'Dayle']];
 
@@ -137,7 +137,7 @@ The `array_pluck` method will pluck a list of the given key / value pairs from t
 
 ### array_pull
 
-The `array_pull` method will return a given key / value pair from the array, as well as remove it.
+`array_pull` 函式將會從陣列回傳給定的鍵值對，並移除它。
 
 	$array = ['name' => 'Taylor', 'age' => 27];
 
@@ -145,7 +145,7 @@ The `array_pull` method will return a given key / value pair from the array, as 
 
 ### array_set
 
-The `array_set` method will set a value within a deeply nested array using "dot" notation.
+`array_set` 函式將會使用「點」符號在深度巢狀陣列中指定值。
 
 	$array = ['names' => ['programmer' => 'Joe']];
 
@@ -153,7 +153,7 @@ The `array_set` method will set a value within a deeply nested array using "dot"
 
 ### array_sort
 
-The `array_sort` method sorts the array by the results of the given Closure.
+`array_sort` 函式借由給定閉包的結果來排序陣列。
 
 	$array = [
 		['name' => 'Jill'],
@@ -167,7 +167,7 @@ The `array_sort` method sorts the array by the results of the given Closure.
 
 ### array_where
 
-Filter the array using the given Closure.
+使用給定的閉包過濾陣列。
 
 	$array = [100, '200', 300, '400', 500];
 
@@ -180,36 +180,36 @@ Filter the array using the given Closure.
 
 ### head
 
-Return the first element in the array. Useful for method chaining in PHP 5.3.x.
+回傳陣列中第一個元素。對 PHP 5.3.x 的方法鏈很有用。
 
 	$first = head($this->returnsArray('foo'));
 
 ### last
 
-Return the last element in the array. Useful for method chaining.
+回傳陣列中最後一個元素。對方法鏈很有用。
 
 	$last = last($this->returnsArray('foo'));
 
 <a name="paths"></a>
-## Paths
+## 路徑
 
 ### app_path
 
-Get the fully qualified path to the `app` directory.
+取得 `app` 資料夾的完整路徑。
 
 	$path = app_path();
 
 ### base_path
 
-Get the fully qualified path to the root of the application install.
+取得應用程式安裝根目錄的完整路徑。
 
 ### public_path
 
-Get the fully qualified path to the `public` directory.
+取得 `public` 資料夾的完整路徑。
 
 ### storage_path
 
-Get the fully qualified path to the `storage` directory.
+取得 `storage` 資料夾的完整路徑。
 
 <a name="routing"></a>
 ## Routing
@@ -243,7 +243,7 @@ Register a new PATCH route with the router.
 Register a new DELETE route with the router.
 
 	delete('foo/bar', 'FooController@action');
-	
+
 ### resource
 
 Register a new RESTful resource route with the router.
@@ -251,11 +251,11 @@ Register a new RESTful resource route with the router.
 	resource('foo', 'FooController');
 
 <a name="strings"></a>
-## Strings
+## 字串
 
 ### camel_case
 
-Convert the given string to `camelCase`.
+把給定的字串轉換成 `駝峰式命名`。
 
 	$camel = camel_case('foo_bar');
 
@@ -263,7 +263,7 @@ Convert the given string to `camelCase`.
 
 ### class_basename
 
-Get the class name of the given class, without any namespace names.
+取得給定類別的類別名稱，不含任何命名空間的名稱。
 
 	$class = class_basename('Foo\Bar\Baz');
 
@@ -271,19 +271,19 @@ Get the class name of the given class, without any namespace names.
 
 ### e
 
-Run `htmlentities` over the given string, with UTF-8 support.
+對給定字串執行 `htmlentities`，並支援 UTF-8。
 
 	$entities = e('<html>foo</html>');
 
 ### ends_with
 
-Determine if the given haystack ends with a given needle.
+判斷句子結尾是否有給定的字串。
 
 	$value = ends_with('This is my name', 'name');
 
 ### snake_case
 
-Convert the given string to `snake_case`.
+把給定的字串轉換成 `蛇形命名`。
 
 	$snake = snake_case('fooBar');
 
@@ -291,11 +291,11 @@ Convert the given string to `snake_case`.
 
 ### str_limit
 
-Limit the number of characters in a string.
+限制字串的字元數量。
 
 	str_limit($value, $limit = 100, $end = '...')
 
-Example:
+例子：
 
 	$value = str_limit('The PHP framework for web artisans.', 7);
 
@@ -303,19 +303,19 @@ Example:
 
 ### starts_with
 
-Determine if the given haystack begins with the given needle.
+判斷句子是否開頭有給定的字串。
 
 	$value = starts_with('This is my name', 'This');
 
 ### str_contains
 
-Determine if the given haystack contains the given needle.
+判斷句子是否有給定的字串。
 
 	$value = str_contains('This is my name', 'my');
 
 ### str_finish
 
-Add a single instance of the given needle to the haystack. Remove any extra instances.
+加一個給定字串到句子結尾。多餘一個的給定字串則移除。
 
 	$string = str_finish('this/string', '/');
 
@@ -323,35 +323,35 @@ Add a single instance of the given needle to the haystack. Remove any extra inst
 
 ### str_is
 
-Determine if a given string matches a given pattern. Asterisks may be used to indicate wildcards.
+判斷字串是否符合給定的模式。星號可以用來當作萬用字元。
 
 	$value = str_is('foo*', 'foobar');
 
 ### str_plural
 
-Convert a string to its plural form (English only).
+把字串轉換成它的多數形態 (只有英文)。
 
 	$plural = str_plural('car');
 
 ### str_random
 
-Generate a random string of the given length.
+產生給定長度的隨機字串。
 
 	$string = str_random(40);
 
 ### str_singular
 
-Convert a string to its singular form (English only).
+把字串轉換成它的單數形態 (只有英文)。
 
 	$singular = str_singular('cars');
 
 ### str_slug
 
-Generate a URL friendly "slug" from a given string.
+從給定字串產生一個對網址友善的「slug」。
 
 	str_slug($title, $separator);
 
-Example:
+例子：
 
 	$title = str_slug("Laravel 5 Framework", "-");
 
@@ -359,7 +359,7 @@ Example:
 
 ### studly_case
 
-Convert the given string to `StudlyCase`.
+把給定字串轉換成 `首字大寫命名`。
 
 	$value = studly_case('foo_bar');
 
@@ -367,67 +367,67 @@ Convert the given string to `StudlyCase`.
 
 ### trans
 
-Translate a given language line. Alias of `Lang::get`.
+翻譯給定的語句。等同 `Lang::get`。
 
 	$value = trans('validation.required'):
 
 ### trans_choice
 
-Translate a given language line with inflection. Alias of `Lang::choice`.
+隨著詞形變化翻譯給定的語句。等同 `Lang::choice`。
 
 	$value = trans_choice('foo.bar', $count);
 
 <a name="urls"></a>
-## URLs
+## 網址
 
 ### action
 
-Generate a URL for a given controller action.
+產生給定控制器行為的網址。
 
 	$url = action('HomeController@getIndex', $params);
 
 ### route
 
-Generate a URL for a given named route.
+產生給定路由名稱的網址。
 
 	$url = route('routeName', $params);
 
 ### asset
 
-Generate a URL for an asset.
+產生資源的網址。
 
 	$url = asset('img/photo.jpg');
 
 ### secure_asset
 
-Generate a URL for an asset using HTTPS.
+產生給定資源的 HTTPS 連結。
 
 	echo secure_asset('foo/bar.zip', $title, $attributes = []);
 
 ### secure_url
 
-Generate a fully qualified URL to a given path using HTTPS.
+產生給定路徑的 HTTPS 完整網址。
 
 	echo secure_url('foo/bar', $parameters = []);
 
 ### url
 
-Generate a fully qualified URL to the given path.
+產生給定路徑的完整網址。
 
 	echo url('foo/bar', $parameters = [], $secure = null);
 
 <a name="miscellaneous"></a>
-## Miscellaneous
+## 其他
 
 ### csrf_token
 
-Get the value of the current CSRF token.
+取得現在 CSRF token 的值。
 
 	$token = csrf_token();
 
 ### dd
 
-Dump the given variable and end execution of the script.
+印出給定變數並結束腳本執行。
 
 	dd($value);
 
@@ -451,7 +451,7 @@ Fire an event.
 
 ### value
 
-If the given value is a `Closure`, return the value returned by the `Closure`. Otherwise, return the value.
+如果給定的值是個 `閉包`，回傳 `閉包` 的回傳值。不是的話，則回傳值。
 
 	$value = value(function() { return 'bar'; });
 
@@ -463,6 +463,6 @@ Get a View instance for the given view path.
 
 ### with
 
-Return the given object. Useful for method chaining constructors in PHP 5.3.x.
+回傳給定物件。對 PHP 5.3.x 的建構式方法鏈很有用。
 
 	$value = with(new Foo)->doWork();
