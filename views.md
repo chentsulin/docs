@@ -42,7 +42,7 @@
 	// 使用魔術方法
 	$view = view('greeting')->withName('Victoria');
 
-> **譯註:** 使用魔術方法時，變數名稱會被使用 `snake_case()` 替換，請參考 [字串輔助方法](/docs/5.0/helpers#strings)。
+> **譯註：** 使用魔術方法時，變數名稱會被使用 `snake_case()` 替換，請參考 [字串輔助方法](/docs/5.0/helpers#strings)。
 
 在上面的範例程式碼中，視圖將可以使用 `$name` 來取得資料，其值為 `Victoria`。
 
@@ -50,7 +50,7 @@
 
 	$view = view('greetings', $data);
 
-> **譯註:** 在上面的範例程式碼中，視圖將可以使用 `$name` 來取得資料 `$data['name']` 的資料。
+> **譯註：** 在上面的範例程式碼中，視圖將可以使用 `$name` 來取得資料 `$data['name']` 的資料。
 
 #### 把資料共享給所有視圖
 
@@ -70,9 +70,9 @@
 
 通常你應該在服務提供者的 `boot()` 內使用以上的兩種範例。 你可以選擇加在 `AppServiceProvider` 或者是新建一個新的服務提供者來容納這些程式碼。
 
-> **備註:** 當 `view` 輔助方法沒有給予任何參數呼叫時，它將會回傳一個的 `Illuminate\Contracts\View\Factory` 公約 (contract) 的實作 (implementation)。
+> **備註：** 當 `view` 輔助方法沒有給予任何參數呼叫時，它將會回傳一個的 `Illuminate\Contracts\View\Factory` 公約 (contract) 的實作 (implementation)。
 
-> **譯註:** 當 `view` 輔助方法沒有給予任何參數呼叫時，`view()->` 會等同於 `View::`
+> **譯註：** 當 `view` 輔助方法沒有給予任何參數呼叫時，`view()->` 會等同於 `View::`
 
 #### 確認視圖是否存在
 
@@ -134,7 +134,7 @@
 
 	}
 
-> **備註:** Laravel 沒有預設的目錄來放置視圖組件。你可以自由的依自己喜好組織它們。舉例來說，你可以建立一個 `App\Http\ViewComposers` 目錄。
+> **備註：** Laravel 沒有預設的目錄來放置視圖組件。你可以自由的依自己喜好組織它們。舉例來說，你可以建立一個 `App\Http\ViewComposers` 目錄。
 
 Remember, you will need to add the service provider to the `providers` array in the `config/app.php` configuration file.
 
@@ -181,7 +181,7 @@ Remember, you will need to add the service provider to the `providers` array in 
 
 在視圖被渲染之前，視圖組件類別的 `compose` 方法就會被呼叫，並且傳入一個 `Illuminate\Contracts\View\View` 實例。 你可以使用 `with` 方法來把資料綁訂到 `view`。
 
-> **備註:** 所有的視圖組件類別會自動被 [服務容器 \(service container\)](/docs/5.0/container) 解析，所以你在視圖組件類別 `__construct()` 的參數前面只需要加上型別提示 (type-hint)，即可自動解析所有需要的相依參數。
+> **備註：** 所有的視圖組件類別會自動被 [服務容器 \(service container\)](/docs/5.0/container) 解析，所以你在視圖組件類別 `__construct()` 的參數前面只需要加上型別限制 (type-hint)，即可自動解析所有需要的相依參數。
 
 #### 在視圖組件內使用萬用字元
 
@@ -214,7 +214,7 @@ Remember, you will need to add the service provider to the `providers` array in 
 
 	View::creator('profile', 'App\Http\ViewCreators\ProfileCreator');
 
-> **譯註:** 視圖組件與視圖創建者的呼叫順序：<br>
+> **譯註：** 視圖組件與視圖創建者的呼叫順序：<br>
 > 1. 視圖初始化<br>
 > 2. 呼叫 `creators`<br>
 > 3. 視圖被 `view` 輔助方法回傳給 `Controller` 或 `Route`<br>
