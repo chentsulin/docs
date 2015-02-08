@@ -37,7 +37,7 @@ Laravel ships with scaffolding for user registration and authentication. If you 
 	php artisan fresh
 
 <a name="server-requirements"></a>
-## Server Requirements
+## 環境需求
 
 Laravel 框架有一些系統上的需求：
 
@@ -64,7 +64,7 @@ Laravel 幾乎不需設定就可以馬上使用。你可以自由的開始開發
 <a name="permissions"></a>
 ### 權限
 
-Laravel 框架有一個目錄需要額外設置權限：`storage` 要讓網頁伺服器有寫入的權限。
+Laravel 框架有一個目錄需要額外設置權限：`storage` 要讓伺服器有寫入的權限。
 
 <a name="pretty-urls"></a>
 ## 優雅鏈結
