@@ -11,7 +11,7 @@
 HTTP 中介層提供一個方便的機制來過濾進入應用程式的 HTTP 請求，例如，Laravel 本身使用中介層來檢驗使用者身份驗證，如果使用者經過身份驗證，中介層會將用戶導向登入頁面，然而，如果用戶通過身份驗證，中介層將會允許這個請求進一步繼續前進。
 
 當然，除了身份驗證之外，中介層也可以被用來執行各式各樣的任務，CORS 中介層負責替所有即將離開程式的回應加入適當的標頭，一個日誌中介層可以記錄所有傳入應用程式的請求。
-Laravel 框架已經內建一些中介層，包括維護、身份驗證、CSRF 保護，等等。所有的中介層都位於 `app/Http/Middleware` 目錄內。
+Laravel 框架已經內建一些中介層，包括維護、身份驗證、CSRF 保護，等等。所有的中介層都位於 `app/Http/Middleware`  目錄內。
 
 <a name="defining-middleware"></a>
 ## 建立中介層
@@ -20,7 +20,8 @@ Laravel 框架已經內建一些中介層，包括維護、身份驗證、CSRF �
 
 	php artisan make:middleware OldMiddleware
 
-此指令將會 在 `app/Http/Middleware` 目錄內建立一個名稱為 `OldMiddleware` 的類別。在這個中介層內我們只允許 `年齡` 大於 200 的才能存取路由，否則，我們會將用戶重新導向"家"的 URI。
+此指令將會 在 `app/Http/Middleware` 目錄內建立一個名稱為 `OldMiddleware` 的類別。在這個中介層內我們只允許 `年齡` 大於 200 的才能存取路由，否則，我們會將用戶重新導向 "home" 的 URI 。
+
 	<?php namespace App\Http\Middleware;
 
 	class OldMiddleware {
@@ -101,6 +102,7 @@ However, this middleware would perform its task **after** the request is handled
 ## 限期中介層
 
 有些時候中介層需要在 HTTP 回應已被傳送到用戶端之後才執行，例如，Laravel 內建的 "session" 中介層，儲存 session 資料是在回應已被傳送到用戶端 _之後_ 才執行。為了做到這一點，你需要定義中介層為“限期”。
+
 	use Illuminate\Contracts\Routing\TerminableMiddleware;
 
 	class StartSession implements TerminableMiddleware {
@@ -117,4 +119,4 @@ However, this middleware would perform its task **after** the request is handled
 
 	}
 
-如你所見，除了定義 `處理` 方法之外, `TerminableMiddleware` 定義一個 `限期` 方法。這個方法接收請求和回應。一旦定義了限期中介層，你需要將它增加到 HTTP kernel 檔案的全域中介層清單列表中。
+如你所見，除了定義 `handle` 方法之外，`TerminableMiddleware` 定義一個 `terminate` 方法。這個方法接收請求和回應。一旦定義了限期中介層，你需要將它增加到 HTTP kernel 檔案的全域中介層清單列表中。
