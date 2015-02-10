@@ -12,7 +12,7 @@
 <a name="basic-routing"></a>
 ## 基本路由
 
-您將在您應用中的 `app/Http/routes.php` 的檔案載入了 `App\Providers\RouteServiceProvider`  類別來定義大多數的路由。大多數基本的 Laravel 路由都只透過 URI 和 `閉包(Closure)` ：
+您將在您應用中的 `app/Http/routes.php` 的檔案載入了 `App\Providers\RouteServiceProvider` 類別來定義大多數的路由。大多數基本的 Laravel 路由都只透過 URI 和 `閉包(Closure)`：
 
 #### 基本 GET 路由
 
@@ -52,14 +52,14 @@
 		return 'Hello World';
 	});
 
-通常情況下，您將會需要為您的路由產生 URL ，您可以使用 `url` 輔助函數來操作：
+通常情況下，您將會需要為您的路由產生 URL，您可以使用 `url` 輔助函數來操作：
 
 	$url = url('foo');
 
 <a name="csrf-protection"></a>
 ## CSRF 保護
 
-Laravel 提供簡易的方法，讓您可以保護您的應用程式不受到 [CSRF  (跨網站請求偽造)]((http://en.wikipedia.org/wiki/Cross-site_request_forgery) 攻擊。跨網站請求偽造是一種惡意的攻擊，藉以代表經過身份驗證的使用者執行未經授權的命令。
+Laravel 提供簡易的方法，讓您可以保護您的應用程式不受到 [CSRF (跨網站請求偽造)]((http://en.wikipedia.org/wiki/Cross-site_request_forgery) 攻擊。跨網站請求偽造是一種惡意的攻擊，藉以代表經過身份驗證的使用者執行未經授權的命令。
 
 Laravel 會自動在每一位使用者的 session 中放置隨機的 `token` ，這個 token  將被用來確保經過驗證的使用者是實際發出請求至應用程式的使用者：
 
@@ -71,6 +71,7 @@ Laravel 會自動在每一位使用者的 session 中放置隨機的 `token` ，
 
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
+<<<<<<< HEAD
 您不需要手動驗證在 POST、PUT、DELETE 請求的 CSRF token。`VerifyCsrfToken` [HTTP 中介層](/docs/5.0/middleware)將儲存在 session 中的請求輸入的 token 配對來驗證 token。
 
 #### X-CSRF-TOKEN
