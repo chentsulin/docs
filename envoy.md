@@ -166,4 +166,3 @@ The following syntax may be used to send a notification to [Slack](https://slack
 To update Envoy, simply use Composer:
 
 	composer global update
-
